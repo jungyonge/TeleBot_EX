@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Setalarm">
+
+    <resultMap id="result" type="Setalarm">
+        <result property="moday" column="moday"/>
+        <result property="trySum" column="trySum"/>
+        <result property="tryCnt" column="tryCnt"/>
+        <result property="sucSum" column="sucSum"/>
+        <result property="sucCnt" column="sucCnt"/>
+        <result property="failSum" column="failSum"/>
+        <result property="failCnt" column="failCnt"/>
+    </resultMap>
+
+    <select id="getOrderStatus" resultType="HashMap" parameterType="map">>
+        SELECT
+            *
+        FROM
+            alarm
+        GROUP BY moday
+        ORDER BY moday desc;
+    </select>
+
+</mapper>
